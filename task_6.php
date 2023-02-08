@@ -10,7 +10,7 @@ $users = [ //users
         "job" => "Lead Author ",
         "twitter" => "@myplaneticket",
         "email" => "https://wrapbootstrap.com/user/myorange",
-        "style" => "rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0"
+        "is_banned" => true
     ],
     [
         "image" => "img/demo/authors/josh.png",
@@ -19,7 +19,7 @@ $users = [ //users
         "job" => "Partner &amp; Contributor",
         "twitter" => "@atlantez",
         "email" => "https://wrapbootstrap.com/user/Walapa",
-        "style" => "rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0"
+        "is_banned" => false
     ],
     [
         "image" => "img/demo/authors/jovanni.png",
@@ -28,7 +28,8 @@ $users = [ //users
         "job" => "Partner &amp; Contributor",
         "twitter" => "@lodev09",
         "email" => "https://wrapbootstrap.com/user/lodev09",
-        "style" => "banned rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0"
+        "is_banned" => false
+
     ],
     [
         "image" => "img/demo/authors/josh.png",
@@ -37,7 +38,8 @@ $users = [ //users
         "job" => "Partner &amp; Contributor",
         "twitter" => "@sildur",
         "email" => "https://wrapbootstrap.com/user/sildur",
-        "style" => "banned rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0"
+        "is_banned" => false
+
     ],
     [
         "image" => "img/demo/authors/jovanni.png",
@@ -46,7 +48,8 @@ $users = [ //users
         "job" => "Partner &amp; Contributor",
         "twitter" => "@lodev09",
         "email" => "https://wrapbootstrap.com/user/lodev09",
-        "style" => "banned rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0"
+        "is_banned" => false
+
     ],
     [
         "image" => "img/demo/authors/jovanni.png",
@@ -55,7 +58,8 @@ $users = [ //users
         "job" => "Partner &amp; Contributor",
         "twitter" => "@lodev09",
         "email" => "https://wrapbootstrap.com/user/lodev09",
-        "style" => "banned rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0"
+        "is_banned" => true
+
     ]
 ]
 ?>
@@ -95,7 +99,7 @@ $users = [ //users
                         <div class="panel-content">
                            <div class="d-flex flex-wrap demo demo-h-spacing mt-3 mb-3">
                             <?php foreach($users as $user):?> 
-                                <div class="<?php echo $user['style']?>">
+                                <div class="<?php echo $user['is_banned'] ? "banned" : "";?> rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
                                 <img src="<?php echo $user['image']?>" alt="<?php echo $user['name']?>" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
                                 <div class="ml-2 mr-3">
                                     <h5 class="m-0">
