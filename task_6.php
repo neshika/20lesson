@@ -1,9 +1,70 @@
+<?php
+$title = "Подготовительные задания к курсу";
+$header = "Задание";
+
+$users = [ //users
+    [
+        "image" => "img/demo/authors/sunny.png",
+        "name" => "Sunny A.",
+        "company" => "(UI/UX Expert)",
+        "job" => "Lead Author ",
+        "twitter" => "@myplaneticket",
+        "email" => "https://wrapbootstrap.com/user/myorange",
+        "style" => "rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0"
+    ],
+    [
+        "image" => "img/demo/authors/josh.png",
+        "name" => "Jos K.",
+        "company" => "(ASP.NET Developer)",
+        "job" => "Partner &amp; Contributor",
+        "twitter" => "@atlantez",
+        "email" => "https://wrapbootstrap.com/user/Walapa",
+        "style" => "rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0"
+    ],
+    [
+        "image" => "img/demo/authors/jovanni.png",
+        "name" => "Jovanni L.",
+        "company" => "(PHP Developer)",
+        "job" => "Partner &amp; Contributor",
+        "twitter" => "@lodev09",
+        "email" => "https://wrapbootstrap.com/user/lodev09",
+        "style" => "banned rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0"
+    ],
+    [
+        "image" => "img/demo/authors/josh.png",
+        "name" => "Roberto R.",
+        "company" => "(Rails Developer)",
+        "job" => "Partner &amp; Contributor",
+        "twitter" => "@sildur",
+        "email" => "https://wrapbootstrap.com/user/sildur",
+        "style" => "banned rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0"
+    ],
+    [
+        "image" => "img/demo/authors/jovanni.png",
+        "name" => "Jovanni L.",
+        "company" => "(PHP Developer)",
+        "job" => "Partner &amp; Contributor",
+        "twitter" => "@lodev09",
+        "email" => "https://wrapbootstrap.com/user/lodev09",
+        "style" => "banned rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0"
+    ],
+    [
+        "image" => "img/demo/authors/jovanni.png",
+        "name" => "Jovanni L.",
+        "company" => "(PHP Developer)",
+        "job" => "Partner &amp; Contributor",
+        "twitter" => "@lodev09",
+        "email" => "https://wrapbootstrap.com/user/lodev09",
+        "style" => "banned rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0"
+    ]
+]
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
         <meta charset="utf-8">
         <title>
-            Подготовительные задания к курсу
+            <?php echo $title;?>
         </title>
         <meta name="description" content="Chartist.html">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +84,7 @@
                 <div id="panel-1" class="panel">
                     <div class="panel-hdr">
                         <h2>
-                            Задание
+                            <?php echo $header;?>
                         </h2>
                         <div class="panel-toolbar">
                             <button class="btn btn-panel waves-effect waves-themed" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
@@ -33,6 +94,22 @@
                     <div class="panel-container show">
                         <div class="panel-content">
                            <div class="d-flex flex-wrap demo demo-h-spacing mt-3 mb-3">
+                            <?php foreach($users as $user):?> 
+                                <div class="<?php echo $user['style']?>">
+                                <img src="<?php echo $user['image']?>" alt="<?php echo $user['name']?>" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
+                                <div class="ml-2 mr-3">
+                                    <h5 class="m-0">
+                                        <?php echo $user['name'] . " " . $user['job']?>
+                                        <small class="m-0 fw-300">
+                                            <?php echo $user['company']?>
+                                        </small>
+                                    </h5>
+                                    <a href="https://twitter.com/<?php echo $user['twitter']?>" class="text-info fs-sm" target="_blank"><?php echo $user['twitter']?></a> -
+                                    <a href="<?php echo $user['email']?>" class="text-info fs-sm" target="_blank" title="Contact <?php echo $user['name']?>"><i class="fal fa-envelope"></i></a>
+                                </div>
+                            </div>
+                            <?php endforeach;?>
+                           <!--
                             <div class="rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
                                 <img src="img/demo/authors/sunny.png" alt="Sunny A." class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
                                 <div class="ml-2 mr-3">
