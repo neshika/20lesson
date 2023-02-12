@@ -39,10 +39,10 @@ include_once("init.php");
                         <div class="panel-content">
                             <div class="panel-content">
                                 <div class="form-group">
-                                    <?php if(isset($_SESSION['message'])):?>
+                                    <?php if(isset($_SESSION['danger'])):?>
                                     <div class="alert alert-danger fade show" role="alert">
-                                       <?php echo $_SESSION['message'];
-                                        unset($_SESSION['message']);
+                                       <?php echo $_SESSION['danger'];
+                                        unset($_SESSION['danger']);
                                         ?>
                                     </div>
                                     <?php endif;?>
