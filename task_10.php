@@ -1,9 +1,16 @@
+<?php
+    $title =  "Подготовительные задания к курсу";
+    $heaer = "Задание";
+
+ 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
         <meta charset="utf-8">
         <title>
-            Подготовительные задания к курсу
+           <?php echo $title;?>
         </title>
         <meta name="description" content="Chartist.html">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,7 +31,7 @@
                 <div id="panel-1" class="panel">
                     <div class="panel-hdr">
                         <h2>
-                            Задание
+                            <?php echo $heaer;?>
                         </h2>
                         <div class="panel-toolbar">
                             <button class="btn btn-panel waves-effect waves-themed" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
@@ -35,10 +42,10 @@
                         <div class="panel-content">
                             <div class="panel-content">
                                 <div class="form-group">
-                                    <form action="">
+                                    <form action="save_10.php" method="POST">
                                         <label class="form-label" for="simpleinput">Text</label>
-                                        <input type="text" id="simpleinput" class="form-control">
-                                        <button class="btn btn-success mt-3">Submit</button>
+                                        <input type="text" id="simpleinput" class="form-control" name="text">
+                                        <button class="btn btn-success mt-3" name="btm">Submit</button>
                                     </form>
                                 </div>
                             </div>
