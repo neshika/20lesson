@@ -1,9 +1,31 @@
+<?php
+    $title = 'Подготовительные задания к курсу';
+    $header = 'Задание';
+    $links = [
+        [
+            "title" => 'Главная',
+            "href" => 'example.com/',
+            "is_link" => true
+        ],
+        [
+            "title" => 'PHP',
+            "href" => 'example.com/php',
+            "is_link" => true
+        ],
+        [
+            "title" => 'Функции',
+            "href" => '#',
+            "is_link" => false
+        ]
+    ]
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
         <meta charset="utf-8">
         <title>
-            Подготовительные задания к курсу
+            <?php echo $title;?>
         </title>
         <meta name="description" content="Chartist.html">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +45,7 @@
                 <div id="panel-1" class="panel">
                     <div class="panel-hdr">
                         <h2>
-                            Задание
+                        <?php echo $header;?>
                         </h2>
                         <div class="panel-toolbar">
                             <button class="btn btn-panel waves-effect waves-themed" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
@@ -33,9 +55,18 @@
                     <div class="panel-container show">
                         <div class="panel-content">
                             <ol class="breadcrumb page-breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Главная</a></li>
+                            <?php foreach($links as $link): ?>
+                                <?php if ($link['is_link']):?>
+                                        <li class="breadcrumb-item"><a href="<?php echo $link['href'];?>"><?php echo $link['title'];?></a></li>
+                                       
+                                    <?php else:?>
+                                        <li class="breadcrumb-item active"><?php echo $link['title'];?></li>
+                                    <?php endif;?>
+                                <!--<li class="breadcrumb-item"><a href="#">Главная</a></li>
                                 <li class="breadcrumb-item"><a href="#">PHP</a></li>
-                                <li class="breadcrumb-item active">Функции</li>
+                                <li class="breadcrumb-item active">Функции</li>-->
+
+                            <?php endforeach;?>    
                             </ol>
                         </div>
                     </div>

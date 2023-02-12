@@ -1,3 +1,37 @@
+<?php
+$j=1;
+$users = [
+    [
+        'FirstName' => 'Mark',
+        'LastName' => 'Otto',
+        "UserName" => '@mdo',
+    ],
+    [
+        'FirstName' => 'Jack',
+        'LastName' => 'div',
+        "UserName" => '@fat',
+    ],
+    [
+        'FirstName' => 'Larry',
+        'LastName' => 'the Bird',
+        "UserName" => '@twitter'
+    ],
+    [
+        'FirstName' => 'Larry and Bird',
+        'LastName' => 'Bird',
+        "UserName" => '@twitter'
+    ]
+    ];
+
+$pdo = new PDO("mysql:host=localhost;dbname=lessons", "root", "321478828");
+$statment = $pdo->prepare("select * from tasks");
+$statment->execute();
+$tasks = $statment->fetchAll(PDO::FETCH_ASSOC);
+//var_dump($tasks); die;
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +81,49 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <?php for($i = 0; $i < count($users); $i++):?>
+                                            <tr>
+                                                <th scope="row"><?php echo $i+1;?></th>
+                                                <td><?php echo $users[$i]['FirstName'];?></td>
+                                                <td><?php echo $users[$i]['LastName'];?></td>
+                                                <td><?php echo $users[$i]['UserName'];?></td>
+                                                <td>
+                                                    <a href="show.php?id=" class="btn btn-info">Редактировать</a>
+                                                    <a href="edit.php?id=" class="btn btn-warning">Изменить</a>
+                                                    <a href="delete.php?id=" class="btn btn-danger">Удалить</a>
+                                                </td>
+                                            </tr>
+                                        <?php endfor;?>    
+
+                                        <?php foreach($users as $user):?>
+                                            <tr>
+                                                <th scope="row"><?php echo $j;?></th>
+                                                <td><?php echo $user['FirstName'];?></td>
+                                                <td><?php echo $user['LastName'];?></td>
+                                                <td><?php echo $user['UserName'];?></td>
+                                                <td>
+                                                    <a href="show.php?id=" class="btn btn-info">Редактировать</a>
+                                                    <a href="edit.php?id=" class="btn btn-warning">Изменить</a>
+                                                    <a href="delete.php?id=" class="btn btn-danger">Удалить</a>
+                                                </td>
+                                            </tr>
+                                        <?php $j++; endforeach;?>    
+                                        <hr>
+                                        <?php foreach($tasks as $task):?>
+                                            <tr>
+                                                <th scope="row"><?php echo $task['id'];?></th>
+                                                <td><?php echo $task['firstname'];?></td>
+                                                <td><?php echo $task['lastname'];?></td>
+                                                <td><?php echo $task['users'];?></td>
+                                                <td>
+                                                    <a href="show.php?id=<?php echo $task['id'];?>" class="btn btn-info">Просмотреть</a>
+                                                    <a href="edit.php?id=<?php echo $task['id'];?>" class="btn btn-warning">Изменить</a>
+                                                    <a href="delete.php?id=<?php echo $task['id'];?>" class="btn btn-danger">Удалить</a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach;?>        
+
+                                       <!-- <tr>
                                             <th scope="row">1</th>
                                             <td>Mark</td>
                                             <td>Otto</td>
@@ -91,6 +167,7 @@
                                                 <a href="delete.php?id=" class="btn btn-danger">Удалить</a>
                                             </td>
                                         </tr>
+                                        -->
                                     </tbody>
                                 </table>
                             </div>
